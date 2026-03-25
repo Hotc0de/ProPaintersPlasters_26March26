@@ -1,0 +1,250 @@
+/* ====================================
+   PREMIUM DARK WHY CHOOSE US SECTION
+   ==================================== */
+
+.why-choose-section {
+  padding: 6rem 2rem;
+  background: #0a0e1a;
+  position: relative;
+}
+
+.why-choose-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.why-choose-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.why-choose-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.why-choose-subtitle {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.why-choose-card {
+  position: relative;
+  background: linear-gradient(135deg, #151922 0%, #1a1f2e 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 340px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-choose-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.why-choose-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-choose-card:hover .why-choose-bg-image {
+  transform: scale(1.08);
+}
+
+.why-choose-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 14, 26, 0.88) 0%,
+    rgba(21, 25, 34, 0.82) 100%
+  );
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.why-choose-card:hover .why-choose-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 14, 26, 0.8) 0%,
+    rgba(21, 25, 34, 0.72) 100%
+  );
+}
+
+/* Special Golden Card for First Item (10+ Years) */
+.why-choose-card.featured {
+  border: 2px solid rgba(212, 175, 55, 0.4);
+}
+
+.why-choose-card.featured .why-choose-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.15) 0%,
+    rgba(10, 14, 26, 0.85) 100%
+  );
+}
+
+.why-choose-card.featured:hover .why-choose-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.2) 0%,
+    rgba(10, 14, 26, 0.75) 100%
+  );
+}
+
+.why-choose-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37 0%, #f4c542 100%);
+  z-index: 3;
+}
+
+.why-choose-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.25);
+}
+
+.why-choose-content {
+  position: relative;
+  z-index: 3;
+  padding: 3rem 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.why-choose-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(244, 197, 66, 0.1) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+.why-choose-card:hover .why-choose-icon-wrapper {
+  background: linear-gradient(135deg, #d4af37 0%, #f4c542 100%);
+  border-color: #d4af37;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+  transform: translateY(-4px) rotate(5deg);
+}
+
+.why-choose-icon {
+  color: #d4af37;
+  transition: all 0.4s ease;
+}
+
+.why-choose-card:hover .why-choose-icon {
+  color: #0a0e1a;
+  transform: scale(1.1);
+}
+
+.why-choose-card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.3px;
+}
+
+.why-choose-card.featured .why-choose-card-title {
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.why-choose-card-description {
+  font-size: 1.05rem;
+  color: #9ca3af;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .why-choose-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .why-choose-title {
+    font-size: 2.25rem;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .why-choose-card {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-choose-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .why-choose-title {
+    font-size: 2rem;
+  }
+
+  .why-choose-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .why-choose-content {
+    padding: 2.5rem 2rem;
+  }
+
+  .why-choose-card {
+    min-height: 300px;
+  }
+
+  .why-choose-card-title {
+    font-size: 1.5rem;
+  }
+
+  .why-choose-card-description {
+    font-size: 1rem;
+  }
+
+  .why-choose-icon-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+}

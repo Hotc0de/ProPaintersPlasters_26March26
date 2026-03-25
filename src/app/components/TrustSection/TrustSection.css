@@ -1,0 +1,135 @@
+/* ====================================
+   PREMIUM DARK TRUST SECTION
+   ==================================== */
+
+.trust-section {
+  padding: 6rem 2rem;
+  background: #0f1419;
+  position: relative;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.trust-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 175, 55, 0.4) 50%, 
+    transparent 100%
+  );
+}
+
+.trust-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.trust-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.trust-card {
+  background: linear-gradient(135deg, #151922 0%, #1a1f2e 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37 0%, #f4c542 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+}
+
+.trust-card:hover::before {
+  opacity: 1;
+}
+
+.trust-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #d4af37;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.trust-label {
+  font-size: 1.05rem;
+  color: #9ca3af;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .trust-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .trust-title {
+    font-size: 2rem;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .trust-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .trust-number {
+    font-size: 2.5rem;
+  }
+
+  .trust-label {
+    font-size: 1rem;
+  }
+}
