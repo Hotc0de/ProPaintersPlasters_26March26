@@ -1,3 +1,10 @@
+/**
+ * NAVBAR COMPONENT
+ * 
+ * Fixed header with navigation menu and language switcher.
+ * Content comes from src/content/site-content.ts
+ */
+
 import React from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import './Navbar.css';
@@ -16,10 +23,10 @@ export const Navbar: React.FC<NavbarProps> = ({ content, language, onLanguageCha
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Only English and Vietnamese languages supported
   const languages = [
     { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
-    { code: 'zh', label: '中文', flag: '🇨🇳' }
+    { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === language) || languages[0];
@@ -40,11 +47,9 @@ export const Navbar: React.FC<NavbarProps> = ({ content, language, onLanguageCha
 
         {/* Desktop Navigation */}
         <div className="navbar-menu">
-          <a href="#home" className="nav-link">{content.nav.home}</a>
-          <a href="#services" className="nav-link">{content.nav.services}</a>
-          <a href="#gallery" className="nav-link">{content.nav.gallery}</a>
-          <a href="#about" className="nav-link">{content.nav.about}</a>
-          <a href="#contact" className="nav-link">{content.nav.contact}</a>
+          {content.nav && content.nav.links && content.nav.links.map((link: any, index: number) => (
+            <a key={index} href={link.href} className="nav-link">{link.label}</a>
+          ))}
         </div>
 
         {/* Language Toggle */}

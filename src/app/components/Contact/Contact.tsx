@@ -1,3 +1,11 @@
+/**
+ * CONTACT SECTION
+ * 
+ * Displays contact information and a contact form.
+ * Content comes from src/content/site-content.ts
+ * Phone, email, address from src/content/business-info.ts
+ */
+
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
@@ -9,7 +17,7 @@ interface ContactProps {
 
 export const Contact: React.FC<ContactProps> = ({ content }) => {
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     email: '',
     phone: '',
     service: '',
@@ -21,13 +29,13 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
     // Handle form submission
     console.log('Form submitted:', formData);
     alert(content.contact.successMessage || 'Thank you! We will contact you soon.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setFormData({ fullName: '', email: '', phone: '', service: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.id]: e.target.value
     });
   };
 
@@ -57,7 +65,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Phone size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>{content.footer.contact.phoneLabel || 'Phone'}</h3>
+                  <h3>Phone</h3>
                   <p>{content.footer.contact.phone}</p>
                 </div>
               </div>
@@ -67,7 +75,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Mail size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>{content.footer.contact.emailLabel || 'Email'}</h3>
+                  <h3>Email</h3>
                   <p>{content.footer.contact.email}</p>
                 </div>
               </div>
@@ -77,7 +85,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <MapPin size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>{content.footer.contact.addressLabel || 'Address'}</h3>
+                  <h3>Address</h3>
                   <p>{content.footer.contact.address}</p>
                 </div>
               </div>
@@ -87,7 +95,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Clock size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>{content.footer.contact.hoursLabel || 'Hours'}</h3>
+                  <h3>Hours</h3>
                   <p>{content.footer.contact.hours}</p>
                 </div>
               </div>
@@ -99,72 +107,68 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
             <h3 className="form-title">{content.contact.formTitle}</h3>
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
-                <label htmlFor="name">{content.contact.nameLabel}</label>
+                <label htmlFor="fullName">Full Name</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="fullName"
+                  value={formData.fullName}
                   onChange={handleChange}
                   required
-                  placeholder={content.contact.namePlaceholder}
+                  placeholder="John Doe"
                 />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="email">{content.contact.emailLabel}</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     type="email"
                     id="email"
-                    name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder={content.contact.emailPlaceholder}
+                    placeholder="john@example.com"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">{content.contact.phoneLabel}</label>
+                  <label htmlFor="phone">Phone Number</label>
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder={content.contact.phonePlaceholder}
+                    placeholder="(555) 123-4567"
                   />
                 </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="service">{content.contact.serviceLabel}</label>
+                <label htmlFor="service">Service Interested In</label>
                 <select
                   id="service"
-                  name="service"
                   value={formData.service}
                   onChange={handleChange}
                   required
                 >
-                  <option value="">{content.contact.servicePlaceholder}</option>
-                  <option value="interior">{content.services.interior.title}</option>
-                  <option value="exterior">{content.services.exterior.title}</option>
-                  <option value="plastering">{content.services.plastering.title}</option>
-                  <option value="commercial">{content.services.commercial.title}</option>
+                  <option value="">Select a service</option>
+                  {content.services && content.services.services && content.services.services.map((service: any) => (
+                    <option key={service.id} value={service.id}>
+                      {service.title}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">{content.contact.messageLabel}</label>
+                <label htmlFor="message">Your Message</label>
                 <textarea
                   id="message"
-                  name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  placeholder={content.contact.messagePlaceholder}
+                  placeholder="Tell us about your project..."
                 ></textarea>
               </div>
 
