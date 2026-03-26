@@ -8,32 +8,13 @@ interface WhyChooseUsProps {
 }
 
 export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
-  const reasons = [
-    {
-      icon: <Star size={48} />,
-      title: content.whyChoose.experience.title,
-      description: content.whyChoose.experience.description,
-      bgImage: 'https://images.unsplash.com/photo-1643968704781-df3b260df6a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleHBlcmllbmNlZCUyMHByb2Zlc3Npb25hbCUyMGNyYWZ0c21hbiUyMHdvcmtpbmd8ZW58MXx8fHwxNzc0NDI4NTU0fDA&ixlib=rb-4.1.0&q=80&w=1080'
-    },
-    {
-      icon: <Award size={48} />,
-      title: content.whyChoose.quality.title,
-      description: content.whyChoose.quality.description,
-      bgImage: 'https://images.unsplash.com/photo-1659456553707-14712bb27032?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwcXVhbGl0eSUyMG1hdGVyaWFscyUyMHRvb2xzfGVufDF8fHx8MTc3NDQyODU1NHww&ixlib=rb-4.1.0&q=80&w=1080'
-    },
-    {
-      icon: <Users size={48} />,
-      title: content.whyChoose.team.title,
-      description: content.whyChoose.team.description,
-      bgImage: 'https://images.unsplash.com/photo-1760009436767-d154e930e55c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0ZWFtJTIwY29uc3RydWN0aW9uJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzQ0Mjg1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    },
-    {
-      icon: <ShieldCheck size={48} />,
-      title: content.whyChoose.guarantee.title,
-      description: content.whyChoose.guarantee.description,
-      bgImage: 'https://images.unsplash.com/photo-1715173679369-18006e84d6a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxxdWFsaXR5JTIwZ3VhcmFudGVlJTIwY2VydGlmaWNhdGUlMjBiYWRnZXxlbnwxfHx8fDE3NzQ0Mjg1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    }
-  ];
+  const icons = [<Star size={48} />, <Award size={48} />, <Users size={48} />, <ShieldCheck size={48} />];
+  const reasons = (content.whyChooseUs.items || []).map((item: any, index: number) => ({
+    icon: icons[index] || <Star size={48} />,
+    title: item.title,
+    description: item.description,
+    bgImage: 'https://images.unsplash.com/photo-1643968704781-df3b260df6a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleHBlcmllbmNlZCUyMHByb2Zlc3Npb25hbCUyMGNyYWZ0c21hbiUyMHdvcmtpbmd8ZW58MXx8fHwxNzc0NDI4NTU0fDA&ixlib=rb-4.1.0&q=80&w=1080'
+  }));
 
   return (
     <section className="why-choose-section" id="about">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { heroImageConfig } from '../../../content/images';
 import './Hero.css';
 
 interface HeroProps {
@@ -13,8 +14,8 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
       {/* Background Image */}
       <div className="hero-background">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1770677350521-d5fdcbd74367?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMHBhaW50aW5nJTIwbW9kZXJuJTIwaG9tZXxlbnwxfHx8fDE3NzQ0MzAzNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Luxury Interior Painting"
+          src={heroImageConfig.url}
+          alt={heroImageConfig.alt}
           className="hero-background-image"
         />
         <div className="hero-overlay"></div>
@@ -39,11 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
 
           {/* Main Heading */}
           <h1 className="hero-title">
-            {content.hero.titlePart1 || "Professional "}
-            <span className="hero-highlight">
-              {content.hero.titleHighlight || "Painting & Plastering"}
-            </span>
-            {content.hero.titlePart2 || " Services"}
+            {content.hero.title || "Professional Painting & Plastering You Can Trust"}
           </h1>
 
           {/* Subtitle */}
@@ -63,30 +60,16 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
 
           {/* Stats Row */}
           <div className="hero-stats">
-            <div className="hero-stat-item">
-              <div className="hero-stat-number">
-                {content.hero.stat1Number || "10+"}
+            {content.hero.stats && content.hero.stats.map((stat: any, index: number) => (
+              <div key={index} className="hero-stat-item">
+                <div className="hero-stat-number">
+                  {stat.number}
+                </div>
+                <div className="hero-stat-label">
+                  {stat.label}
+                </div>
               </div>
-              <div className="hero-stat-label">
-                {content.hero.stat1Label || "Years Experience"}
-              </div>
-            </div>
-            <div className="hero-stat-item">
-              <div className="hero-stat-number">
-                {content.hero.stat2Number || "1000+"}
-              </div>
-              <div className="hero-stat-label">
-                {content.hero.stat2Label || "Homes Completed"}
-              </div>
-            </div>
-            <div className="hero-stat-item">
-              <div className="hero-stat-number">
-                {content.hero.stat3Number || "100%"}
-              </div>
-              <div className="hero-stat-label">
-                {content.hero.stat3Label || "Satisfaction"}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
