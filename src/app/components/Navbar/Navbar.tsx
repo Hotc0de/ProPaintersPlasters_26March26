@@ -42,12 +42,12 @@ export const Navbar: React.FC<NavbarProps> = ({ content, language, onLanguageCha
         {/* Logo */}
         <div className="navbar-logo">
           <span className="logo-icon">🎨</span>
-          <span className="logo-text">{content.nav.logo}</span>
+          <span className="logo-text">{content.navigation.logo}</span>
         </div>
 
         {/* Desktop Navigation */}
         <div className="navbar-menu">
-          {content.nav && content.nav.links && content.nav.links.map((link: any, index: number) => (
+          {content.navigation && content.navigation.links && content.navigation.links.map((link: any, index: number) => (
             <a key={index} href={link.href} className="nav-link">{link.label}</a>
           ))}
         </div>
