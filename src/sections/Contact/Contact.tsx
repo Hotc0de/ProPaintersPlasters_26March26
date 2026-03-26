@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
 import './Contact.css';
 
 interface ContactProps {

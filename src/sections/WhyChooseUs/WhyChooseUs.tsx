@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star, Award, Users, ShieldCheck } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
 import './WhyChooseUs.css';
 
 interface WhyChooseUsProps {

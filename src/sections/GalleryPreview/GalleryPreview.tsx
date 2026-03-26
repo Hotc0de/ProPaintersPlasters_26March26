@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
 import './GalleryPreview.css';
 
 interface GalleryPreviewProps {

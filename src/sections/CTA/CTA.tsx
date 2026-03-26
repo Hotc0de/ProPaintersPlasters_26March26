@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Phone } from 'lucide-react';
-import { businessInfo } from '../../../content';
+import { businessInfo } from '../../content';
 import './CTA.css';
 
 interface CTAProps {

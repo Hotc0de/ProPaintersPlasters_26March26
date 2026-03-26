@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, CheckCircle, Home, Shield } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
 import './TrustSection.css';
 
 interface TrustSectionProps {

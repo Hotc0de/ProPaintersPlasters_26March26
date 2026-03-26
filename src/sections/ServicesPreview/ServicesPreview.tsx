@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paintbrush, Home, Hammer, Building2, ArrowRight } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
 import './ServicesPreview.css';
 
 interface ServicesPreviewProps {

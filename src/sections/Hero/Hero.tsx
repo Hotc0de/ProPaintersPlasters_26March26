@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { heroImageConfig } from '../../../content/images';
+import { ImageWithFallback } from '../../components/ImageWithFallback';
+import { heroImageConfig } from '../../content/images';
 import './Hero.css';
 
 interface HeroProps {
