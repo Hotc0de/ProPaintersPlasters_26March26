@@ -25,7 +25,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
         </div>
 
         <div className="why-choose-grid">
-          {reasons.map((reason, index) => (
+          {reasons.map((reason: any, index: number) => (
             <div key={index} className="why-choose-card">
               <div className="why-choose-card-bg">
                 <ImageWithFallback
