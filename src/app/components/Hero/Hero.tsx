@@ -6,16 +6,19 @@ import './Hero.css';
 
 interface HeroProps {
   content: any;
+  language?: string;
 }
 
-export const Hero: React.FC<HeroProps> = ({ content }) => {
+export const Hero: React.FC<HeroProps> = ({ content, language = 'en' }) => {
+  const heroAlt = typeof heroImageConfig.alt === 'string' ? heroImageConfig.alt : (heroImageConfig.alt as any)[language] || heroImageConfig.alt.en;
+  
   return (
     <section className="hero-section" id="home">
       {/* Background Image */}
       <div className="hero-background">
         <ImageWithFallback
           src={heroImageConfig.url}
-          alt={heroImageConfig.alt}
+          alt={heroAlt}
           className="hero-background-image"
         />
         <div className="hero-overlay"></div>

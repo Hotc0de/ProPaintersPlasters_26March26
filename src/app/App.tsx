@@ -56,12 +56,13 @@ export default function App() {
 
       {/* ========== PAGE SECTIONS ========== */}
       {/* Each section displays content based on current language */}
-      <Hero content={currentContent} />
+      <Hero content={currentContent} language={language} />
       <TrustSection content={currentContent} />
       <ServicesPreview content={currentContent} />
       <GalleryPreview 
         content={currentContent}
         images={galleryImages}
+        language={language}
       />
       <WhyChooseUs content={currentContent} />
       <Testimonials content={currentContent} />

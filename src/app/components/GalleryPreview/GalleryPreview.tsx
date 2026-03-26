@@ -5,9 +5,13 @@ import './GalleryPreview.css';
 interface GalleryPreviewProps {
   content: any;
   images?: any[];
+  language?: string;
 }
 
-export const GalleryPreview: React.FC<GalleryPreviewProps> = ({ content, images = [] }) => {
+export const GalleryPreview: React.FC<GalleryPreviewProps> = ({ content, images = [], language = 'en' }) => {
+  const getAltText = (alt: any) => {
+    return typeof alt === 'string' ? alt : (alt || {})[language] || alt?.en || '';
+  };
 
   return (
     <section className="gallery-section" id="gallery">
@@ -22,7 +26,7 @@ export const GalleryPreview: React.FC<GalleryPreviewProps> = ({ content, images 
             <div key={image.id || index} className="gallery-item">
               <ImageWithFallback
                 src={image.url}
-                alt={image.alt}
+                alt={getAltText(image.alt)}
                 className="gallery-image"
               />
               {image.title && (
