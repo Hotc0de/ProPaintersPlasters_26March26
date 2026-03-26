@@ -89,21 +89,11 @@ export const Navbar: React.FC<NavbarProps> = ({ content, language, onLanguageCha
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
-          <a href="#home" className="mobile-nav-link" onClick={toggleMenu}>
-            {content.nav.home}
-          </a>
-          <a href="#services" className="mobile-nav-link" onClick={toggleMenu}>
-            {content.nav.services}
-          </a>
-          <a href="#gallery" className="mobile-nav-link" onClick={toggleMenu}>
-            {content.nav.gallery}
-          </a>
-          <a href="#about" className="mobile-nav-link" onClick={toggleMenu}>
-            {content.nav.about}
-          </a>
-          <a href="#contact" className="mobile-nav-link" onClick={toggleMenu}>
-            {content.nav.contact}
-          </a>
+          {content.navigation && content.navigation.links && content.navigation.links.map((link: any, index: number) => (
+            <a key={index} href={link.href} className="mobile-nav-link" onClick={toggleMenu}>
+              {link.label}
+            </a>
+          ))}
         </div>
       )}
     </nav>

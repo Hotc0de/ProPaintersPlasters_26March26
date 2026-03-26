@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
           <div className="footer-column">
             <div className="footer-logo">
               <span className="footer-logo-icon">🎨</span>
-              <span className="footer-logo-text">{content.nav.logo}</span>
+              <span className="footer-logo-text">{content.navigation.logo}</span>
             </div>
             <p className="footer-tagline">{content.footer.tagline}</p>
             <div className="footer-social">
