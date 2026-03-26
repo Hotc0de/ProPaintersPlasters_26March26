@@ -9,6 +9,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { ImageWithFallback } from '../../components/ImageWithFallback';
+import { contactImageConfig } from '../../content/images';
 import './Contact.css';
 
 interface ContactProps {
@@ -39,6 +40,11 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
     });
   };
 
+  const fieldsById = (content.contact.fields || []).reduce((acc: Record<string, any>, field: any) => {
+    acc[field.id] = field;
+    return acc;
+  }, {});
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
@@ -52,8 +58,8 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
           <div className="contact-info">
             <div className="contact-image-wrapper">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1587560699334-bea93391dcef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250YWN0JTIwdXMlMjBvZmZpY2UlMjBkZXNrJTIwcGhvbmV8ZW58MXx8fHwxNzc0NDI5MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Contact Us"
+                src={contactImageConfig.url}
+                alt={contactImageConfig.alt.en}
                 className="contact-image"
               />
               <div className="contact-image-overlay"></div>
@@ -65,7 +71,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Phone size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>Phone</h3>
+                  <h3>{content.contact.detailLabels.phone}</h3>
                   <p>{content.footer.contact.phone}</p>
                 </div>
               </div>
@@ -75,7 +81,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Mail size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>Email</h3>
+                  <h3>{content.contact.detailLabels.email}</h3>
                   <p>{content.footer.contact.email}</p>
                 </div>
               </div>
@@ -85,7 +91,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <MapPin size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>Address</h3>
+                  <h3>{content.contact.detailLabels.address}</h3>
                   <p>{content.footer.contact.address}</p>
                 </div>
               </div>
@@ -95,7 +101,7 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Clock size={24} />
                 </div>
                 <div className="contact-detail-text">
-                  <h3>Hours</h3>
+                  <h3>{content.contact.detailLabels.hours}</h3>
                   <p>{content.footer.contact.hours}</p>
                 </div>
               </div>
@@ -107,51 +113,51 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
             <h3 className="form-title">{content.contact.formTitle}</h3>
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
-                <label htmlFor="fullName">Full Name</label>
+                <label htmlFor="fullName">{fieldsById.fullName?.label}</label>
                 <input
                   type="text"
                   id="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  placeholder="John Doe"
+                  placeholder={fieldsById.fullName?.placeholder}
                 />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="email">Email Address</label>
+                  <label htmlFor="email">{fieldsById.email?.label}</label>
                   <input
                     type="email"
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@example.com"
+                    placeholder={fieldsById.email?.placeholder}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
+                  <label htmlFor="phone">{fieldsById.phone?.label}</label>
                   <input
                     type="tel"
                     id="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(555) 123-4567"
+                    placeholder={fieldsById.phone?.placeholder}
                   />
                 </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="service">Service Interested In</label>
+                <label htmlFor="service">{fieldsById.service?.label}</label>
                 <select
                   id="service"
                   value={formData.service}
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Select a service</option>
+                  <option value="">{fieldsById.service?.placeholder}</option>
                   {content.services && content.services.services && content.services.services.map((service: any) => (
                     <option key={service.id} value={service.id}>
                       {service.title}
@@ -161,14 +167,14 @@ export const Contact: React.FC<ContactProps> = ({ content }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Your Message</label>
+                <label htmlFor="message">{fieldsById.message?.label}</label>
                 <textarea
                   id="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  placeholder="Tell us about your project..."
+                  placeholder={fieldsById.message?.placeholder}
                 ></textarea>
               </div>
 

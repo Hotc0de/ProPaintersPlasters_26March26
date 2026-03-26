@@ -7,6 +7,12 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ content }) => {
+  const socialIcons: Record<string, React.ReactNode> = {
+    facebook: <Facebook size={20} />,
+    instagram: <Instagram size={20} />,
+    twitter: <Twitter size={20} />,
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -19,17 +25,20 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
             </div>
             <p className="footer-tagline">{content.footer.tagline}</p>
             <div className="footer-social">
-              <span className="footer-social-title">Follow Us</span>
+              <span className="footer-social-title">{content.footer.social.title}</span>
               <div className="social-icons">
-                <a href="#" className="social-icon" aria-label="Facebook">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" className="social-icon" aria-label="Instagram">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="social-icon" aria-label="Twitter">
-                  <Twitter size={20} />
-                </a>
+                {content.footer.social.links.map((link: any) => (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    className="social-icon"
+                    aria-label={link.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {socialIcons[link.id] ?? <span>{link.label}</span>}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

@@ -9,12 +9,16 @@
 
 export { siteContent } from './site-content';
 export { businessInfo } from './business-info';
+export { socialLinks } from './social-links';
+export { galleryImages } from './gallery-data';
+export { pageText } from './page-text';
+export { contactInfo } from './contact-info';
 export {
   heroImageConfig,
   servicesImageConfig,
-  galleryImages,
   ctaImageConfig,
   trustImageConfig,
+  contactImageConfig,
   getServiceImage,
 } from './images';
 

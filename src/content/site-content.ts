@@ -22,6 +22,7 @@
 
 import { SiteContent } from '../types/index';
 import { businessInfo } from './business-info';
+import { socialLinks } from './social-links';
 
 export const siteContent: SiteContent = {
   // ============================================
@@ -316,6 +317,12 @@ export const siteContent: SiteContent = {
       en: 'Send Us a Message',
       vi: 'Gửi Thông Điệp Cho Chúng Tôi',
     },
+    detailLabels: {
+      phone: { en: 'Phone', vi: 'Điện Thoại' },
+      email: { en: 'Email', vi: 'Email' },
+      address: { en: 'Address', vi: 'Địa Chỉ' },
+      hours: { en: 'Hours', vi: 'Giờ Làm Việc' },
+    },
     fields: [
       {
         id: 'fullName',
@@ -363,6 +370,10 @@ export const siteContent: SiteContent = {
   // ============================================
   footer: {
     tagline: businessInfo.tagline,
+    social: {
+      title: { en: 'Follow Us', vi: 'Theo Dõi Chúng Tôi' },
+      links: socialLinks,
+    },
     sections: [
       {
         title: { en: 'Quick Links', vi: 'Liên Kết Nhanh' },

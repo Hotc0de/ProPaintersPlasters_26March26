@@ -171,6 +171,12 @@ export interface ContactContent {
   title: BilingualText;
   subtitle: BilingualText;
   formTitle: BilingualText;
+  detailLabels: {
+    phone: BilingualText;
+    email: BilingualText;
+    address: BilingualText;
+    hours: BilingualText;
+  };
   fields: ContactFormField[];
   submitButton: BilingualText;
   successMessage: BilingualText;
@@ -185,8 +191,18 @@ export interface FooterSection {
   links: NavLink[];
 }
 
+export interface SocialLink {
+  id: string;
+  label: BilingualText;
+  href: string;
+}
+
 export interface FooterContent {
   tagline: BilingualText;
+  social: {
+    title: BilingualText;
+    links: SocialLink[];
+  };
   sections: FooterSection[];
   contact: {
     title: BilingualText;

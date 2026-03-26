@@ -24,9 +24,13 @@ This document explains exactly where to make common changes to the website. No n
 ```
 src/
 ├── content/                    ← 🔥 EDIT MOST THINGS HERE
-│   ├── business-info.ts        ← Phone, email, address
-│   ├── site-content.ts         ← All text content
-│   ├── images.ts              ← All image URLs
+│   ├── contact-info.ts         ← Beginner entry for contact details
+│   ├── business-info.ts        ← Contact source data (used site-wide)
+│   ├── page-text.ts            ← Beginner entry for EN/VI section text
+│   ├── site-content.ts         ← Full EN/VI section text
+│   ├── social-links.ts         ← All social links in one place
+│   ├── gallery-data.ts         ← All gallery items in one place
+│   ├── images.ts               ← Non-gallery section image URLs
 │   └── index.ts               ← Exports everything
 ├── components/                 ← Reusable UI (don't edit)
 ├── sections/                   ← Homepage sections (should be layout only)
