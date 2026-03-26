@@ -20,8 +20,8 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
     <section className="why-choose-section" id="about">
       <div className="why-choose-container">
         <div className="why-choose-header">
-          <h2 className="why-choose-title">{content.whyChoose.title}</h2>
-          <p className="why-choose-subtitle">{content.whyChoose.subtitle}</p>
+          <h2 className="why-choose-title">{content.whyChooseUs.title}</h2>
+          <p className="why-choose-subtitle">{content.whyChooseUs.subtitle}</p>
         </div>
 
         <div className="why-choose-grid">
