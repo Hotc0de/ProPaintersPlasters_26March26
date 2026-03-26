@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
             </div>
             <p className="footer-tagline">{content.footer.tagline}</p>
             <div className="footer-social">
-              <span className="footer-social-title">{content.footer.social.title}</span>
+              <span className="footer-social-title">Follow Us</span>
               <div className="social-icons">
                 <a href="#" className="social-icon" aria-label="Facebook">
                   <Facebook size={20} />
@@ -34,28 +34,17 @@ export const Footer: React.FC<FooterProps> = ({ content }) => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-column">
-            <h3 className="footer-title">{content.footer.quickLinks.title}</h3>
-            <ul className="footer-links">
-              <li><a href="#home">{content.footer.quickLinks.home}</a></li>
-              <li><a href="#services">{content.footer.quickLinks.services}</a></li>
-              <li><a href="#gallery">{content.footer.quickLinks.gallery}</a></li>
-              <li><a href="#about">{content.footer.quickLinks.about}</a></li>
-              <li><a href="#contact">{content.footer.quickLinks.contact}</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="footer-column">
-            <h3 className="footer-title">{content.footer.services.title}</h3>
-            <ul className="footer-links">
-              <li><a href="#services">{content.footer.services.interior}</a></li>
-              <li><a href="#services">{content.footer.services.exterior}</a></li>
-              <li><a href="#services">{content.footer.services.plastering}</a></li>
-              <li><a href="#services">{content.footer.services.commercial}</a></li>
-            </ul>
-          </div>
+          {/* Footer Sections - Quick Links and Services */}
+          {content.footer.sections && content.footer.sections.map((section: any, index: number) => (
+            <div className="footer-column" key={index}>
+              <h3 className="footer-title">{section.title}</h3>
+              <ul className="footer-links">
+                {section.links && section.links.map((link: any, linkIndex: number) => (
+                  <li key={linkIndex}><a href={link.href}>{link.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           {/* Contact Info */}
           <div className="footer-column">
